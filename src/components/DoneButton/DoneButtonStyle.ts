@@ -1,12 +1,14 @@
 import styled, { keyframes } from "styled-components";
 import { theme } from '../../global/style/style';
 
+
+// zoom and background color change animation
 const fillBackgroundAnimation = keyframes`
     from {
         background-color: transparent;
     }
     to {
-        background-color: ${theme.color.secondaryColor}; /* Replace with desired color */
+        background-color: ${theme.color.primaryColor};
     }
 `;
 
@@ -17,7 +19,7 @@ export const Button = styled.button`
     border: solid;
     background-color: transparent;
     border-radius: 100%;
-    border-color: ${theme.color.secondaryColor};
+    border-color: ${theme.color.primaryColor};
     margin: 0 0.2rem;
     cursor: pointer;
 

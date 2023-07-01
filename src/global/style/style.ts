@@ -1,24 +1,17 @@
 type themeType = {
     color: {
             primaryColor: string,
-            secondaryColor: string,
             backgroundColor: string,
+            secondaryBackgroundColor: string,
             accentColor: string,
         },
 }
 
 export const theme : themeType = {
     color: {
-        primaryColor: '#252423',
-        secondaryColor: '#2ad6cab8',
-        // blockedColor: '#bcaeb3a3',
-        // subtleColor: '#d9d9d9',
+        primaryColor: '#2ad6cab8',
         backgroundColor: '#0c0d0e',
+        secondaryBackgroundColor: '#252423',
         accentColor: '#3b3a39'
     },
-
-    // font: {
-    //     // title400: 'Quicksand',
-    //     // body400: 'Montserrat',
-    // },
 };

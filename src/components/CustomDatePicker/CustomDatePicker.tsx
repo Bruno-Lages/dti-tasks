@@ -1,19 +1,38 @@
-import { DatePickerStyled } from "./CustomReactPickerStyle"
+import DatePicker from "react-datepicker";
 
-type HandleChangeFunction = (date: Date) => void
+import 'react-datepicker/dist/react-datepicker.css';
+// due to library restrictions, it was used a css file for some calendar parts instead of styled components 
+import './css.css'
 
-export function CustomDatePicker({startDate, handleChange} : {startDate: Date, handleChange: HandleChangeFunction}) {
+import { BsCalendarPlus } from "react-icons/bs";
+import { CalendarButton, CalendarContainer } from "./CustomReactPickerStyle";
 
+interface CustomDatePickerProps {
+    startDate: Date | null,
+    handleChange: (date: Date) => void,
+    ariaLabel: string
+}
+
+export function CustomDatePicker({startDate, handleChange, ariaLabel} : CustomDatePickerProps) {
+
+    // define the minimum date as today, 00:00:00
     const today = new Date();
-    today.setHours(0, 0, 0, 0); // Set time to 00:00:00
+    today.setHours(0, 0, 0, 0);
 
-    return(
-        <DatePickerStyled 
-                calendarClassName="calendar"
-                selected={startDate} 
-                onChange={handleChange} 
-                inline 
-                minDate={today}
-                />
-    )
+    return (
+        <DatePicker 
+            minDate={today}
+            selected={startDate} 
+            onChange={handleChange}
+            withPortal 
+            calendarContainer={CalendarContainer}
+            disabledKeyboardNavigation
+            customInput={
+                <CalendarButton aria-label={ariaLabel} type="button">
+                    <BsCalendarPlus />
+                </CalendarButton>
+            } 
+            />
+    );
+   
 }

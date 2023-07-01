@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { theme } from '../../global/style/style';
 
 export const Container = styled.div`
@@ -27,12 +27,16 @@ export const ToggleButton = styled.button`
 
     font-size: 1.5rem;
     cursor: pointer;
+
+    &:hover * {
+        color: ${theme.color.primaryColor};
+    }
 `;
 
 export const HorizontalLine = styled.hr`
     width: 95%;
-    margin: 0.2rem auto;
+    margin: 1rem auto;
     height: 1px;
     border: none;
-    background-color: ${theme.color.secondaryColor};
+    background-color: ${theme.color.accentColor};
 `;

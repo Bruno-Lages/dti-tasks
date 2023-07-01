@@ -28,12 +28,3 @@ code {
     monospace;
 }
 
-.calendar {   
-    margin-bottom: -0.9rem !important;
-    margin-left: 1rem !important;
-    /* background-color: #3b3a39;
-    .react-datepicker__header  {
-        background-color: #11100f;
-        color: #f3f2f1d9;
-    } */
-}

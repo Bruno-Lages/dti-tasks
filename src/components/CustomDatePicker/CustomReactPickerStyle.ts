@@ -1,17 +1,24 @@
 import styled from "styled-components";
-import DatePicker from "react-datepicker";
-import 'react-datepicker/dist/react-datepicker.css';
+import { theme } from "../../global/style/style"
 
-export const DatePickerStyled = styled(DatePicker)`
-    & .mais {   
-        
-            margin-bottom: -0.5rem !important;
-            margin-left: 1rem !important;
-            background-color: red !important;
-        }
-    
-    /* div.react-datepicker__month-container {
-        margin-bottom: -0.8rem;
-        margin-left: 1rem;
-    } */
+export const CalendarContainer = styled.div`
+    border-radius: none;
+    background-color: ${theme.color.secondaryBackgroundColor};
+`;
+
+export const CalendarButton = styled.button`
+    font-size: 1.2rem;
+    border: none;
+    background-color: transparent;
+    border-color: ${theme.color.primaryColor};
+    margin: 0;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    padding: 1rem;
+
+    &:hover {
+        border-radius: 100%;
+        background-color: #746d65;
+    }
 `;

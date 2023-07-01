@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { theme } from "../../global/style/style"
 
+interface AddTaskButtonProps {
+    isFormValid: boolean;
+}
+
 export const Main = styled.main`
     height: 100%;
     display: flex;
@@ -8,9 +12,27 @@ export const Main = styled.main`
     justify-content: space-between;
 `;
 
+export const TasksContainer = styled.div`
+    overflow-y: auto;
+    height: 100%;
+    `;
+    
+export const NoTasksWarning = styled.div`
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
+
+export const TasksDataContainer = styled.div`
+    max-width: 80%;
+`;
+
 export const TaskTitle = styled.p`
-    font-size: 1rem;
-    /* color: ${theme.color.secondaryColor}; */
+    font-size: 1.3rem;
+    color: ${theme.color.primaryColor};
+    word-wrap: break-word
 `;
 
 export const Footer = styled.footer`
@@ -26,6 +48,15 @@ export const Footer = styled.footer`
         };
 `;
 
+export const FormContainer = styled.form`
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+`;
+
 export const TextArea = styled.input`
     background-color: transparent;
     border: none;
@@ -38,21 +69,23 @@ export const TextArea = styled.input`
     }
 `;
 
-export const CalendarButton = styled.button`
-    font-size: 1.2rem;
+export const AddTaskButton = styled.button<AddTaskButtonProps>`
+    font-size: 1.5rem;
     border: none;
     background-color: transparent;
-    border-color: ${theme.color.secondaryColor};
+    border-color: ${theme.color.primaryColor};
     margin: 0;
-    margin-right: 0.5rem;
     cursor: pointer;
+
+    & path {
+        fill: ${({ isFormValid }) => (isFormValid ? 'inherit' : theme.color.accentColor)};
+    }
 `;
 
-export const AddTaskButton = styled.button`
-    font-size: 1.3rem;
+export const TasksDivision = styled.hr`
+    width: 95%;
+    margin: 0.2rem auto;
+    height: 1px;
     border: none;
-    background-color: transparent;
-    border-color: ${theme.color.secondaryColor};
-    margin: 0;
-    cursor: pointer;
+    background-color: white;
 `;

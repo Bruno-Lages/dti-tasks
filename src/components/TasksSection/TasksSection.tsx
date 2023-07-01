@@ -1,11 +1,16 @@
-"use client"
+import { ReactNode, useState } from 'react';
 
-import { useState } from 'react';
-import { Container, TitleContainer, ToggleButton, HorizontalLine } from './DateBarStyle';
+import { Container, TitleContainer, ToggleButton, HorizontalLine } from './TasksSectionStyle';
+
 import {SlArrowUp, SlArrowDown} from 'react-icons/sl';
 import {BsCalendarWeek} from 'react-icons/bs';
 
-export function DateBar({date} : {date: string}) {
+type Props = {
+    children: ReactNode;
+    date: string;
+}
+
+export function TasksSection({date, children} : Props) {
     
     const [toggleShowDate, setToggleShowDate] = useState(true); 
     
@@ -14,18 +19,23 @@ export function DateBar({date} : {date: string}) {
             <Container>
                 <TitleContainer>
                     <BsCalendarWeek />
-                    <h2>
-                        {date}
-                    </h2>
+                    <h1>{date}</h1>
                 </TitleContainer>
+                
+                {/* toggke bar */}
                 <ToggleButton 
                 type='button' 
                 aria-label={(toggleShowDate ? 'Hide' : 'Show') + ' tasks from ' + date} 
-                onClick={() => setToggleShowDate(!toggleShowDate)}>
+                onClick={() => setToggleShowDate(!toggleShowDate)}
+                >
                     {toggleShowDate ? <SlArrowUp/> : <SlArrowDown />}
                 </ToggleButton>
+            
             </Container>
-            {toggleShowDate ? '' : <HorizontalLine />}
+                
+                {toggleShowDate && children}
+                
+            <HorizontalLine />
         </>
     )
 }

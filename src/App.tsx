@@ -1,14 +1,19 @@
+import { Provider } from "react-redux";
+
+import store from './store'
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { Home } from './pages/Home/Home'
+
 
 function App() {
     return (
-        // <div className="App">
-        // {/* <header className="App-header">
-        // </header> */}
-            
-            // {/* <Task title='Start the tasks app' date='28/06/2023'/> */}
+        <Provider store={store}>
+            <ToastContainer position="top-center" theme="dark"/>
             <Home />
-        // </div>
+        </Provider>
     );
 }
 
